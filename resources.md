@@ -1,0 +1,2 @@
+- [Everyday Rails Testing with Rspec]()
+- [The Rspec book]()
