@@ -8,7 +8,8 @@
 3. Run `rake db:migrate` to create the schema
 4. Run `rake db:seed` to create development data
 5. Complete user stories described in [here](#user-stories)
-6. Make a PR to bookstore repository master once you have finished.
+6. Make sure your application meets the [requirements](#requirements) 
+7. Make a PR to bookstore repository master once you have finished.
 
 ## Model attributes 
 
@@ -35,3 +36,9 @@
 
 * As a guess user (not authenticated) I can *only* see book list and book detail.
 
+## Requirements
+
+* Book should always have a name, an author and a slug
+* A book can only be deleted if it has no comment
+* A book slug should be stored in uppercase 
+* A comment should always have a description 
