@@ -2,9 +2,9 @@
 
 * [Polymorphic associations](#polymorphic-associations)
 * [Recursive associations](#recursive-associations) 
-* [i18n](#18n)
-	* [Setup](#setup)
-	* [Using I18n](#using-i18n)
+* [i18n](#i18n)
+	* [Setup](#setup-rails-application-for-i18n)
+	* [Using I18n](#using-i18n-in-our-application)
 	* [Advanced I18n](#advanced-i18n)
 * [Rspec & Rails](#rspec--rails)
 	* [Why Rspec?](#why-rspec) 
@@ -181,8 +181,7 @@ Rails will look inside the translations load path, pick the matching key and dis
 But what about if I want my rails application to use english & spanish translations? If you need different settings you can overwrite them easily, the first thing we must do is to create a configuration file that encapsulates our knowledge of what locales are available and which one is to be used as the default
 
 ```ruby
-#encoding: utf-8
-I18n.default_locale = :enLANGUAGES = [	['English', 'en'],	["Espa&ntilde;ol".html_safe, 'es']]
+# config/initializers/i18n.rbI18n.default_locale = :enI18n.available_locales = [:en, :es]
 ```
 
 The former initializer defines a list of associations between display names and locale names. To get Rails to pick up this configuration change, the server needs to be restarted. 
