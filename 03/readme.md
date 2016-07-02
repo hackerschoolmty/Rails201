@@ -10,6 +10,7 @@
 	* [Integration tests](#integration-tests)
 * [Active Job](#active-job)
 	* [Sidekiq](#sidekiq) 
+* [Exercises](https://github.com/hackerschoolmty/Rails201/blob/master/03/exercises.md)
 
 ## Rspec & rails 
 
@@ -229,7 +230,7 @@ end
 
 After all that, testing the `destroy` method is relatively straightforward 
 
-```
+```ruby
 describe 'DELETE destroy' do
   before :each do
     @contact = create(:contact)

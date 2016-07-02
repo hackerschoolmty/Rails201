@@ -345,7 +345,8 @@ group :development, :test do  gem "rspec-rails"
   gem "capybara" 
   gem "database_cleaner" 
   gem 'rspec-collection_matchers'
-  gem "capybara-selenium"end
+  gem "capybara-selenium"
+  gem "selenium-webdriver", "2.53.4"end
 ```
 
 But hey why do we install it in two separate groups?
@@ -356,7 +357,6 @@ What we just install?
 
 - [rspec-rails](https://github.com/rspec/rspec-rails) includes RSpec itself
 - [rspec-collection-matchers](https://github.com/rspec/rspec-collection_matchers) lets you expressed expected outcomes on collection objects or an object itself- [factory girl rails](https://github.com/thoughtbot/factory_girl_rails) replaces fixtures for feeding test data to the test suite with much more preferable factories.- [faker](https://github.com/stympy/faker) generates random data like names, email addresses, etc.- [capybara](https://github.com/jnicklas/capybara) makes it easy to programatically simulate your user's interactions with your application.- [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) helps make sure each spec run in RSpec begins with a clean slate.
-- [rspec-collection_matcher](https://github.com/rspec/rspec-collection_matchers) lets you express expected outcomes on collections of an object in an example.- [capybara-selenium](https://github.com/seleniumhq/selenium) will let us test JavaScript-based browser interactions with Capybara.
 
 #### Database configuration
 
@@ -753,7 +753,7 @@ That's is why factories exist: they are simple, flexible, and allow to build blo
 
 Back in our spec directory, we'll need to add another subdirectory named `factories`, and then create a file called `contacts.rb` with the following content:
 
-```
+```ruby
 FactoryGirl.define do  factory :contact do    firstname "Cosme"    lastname "Fulanito"    sequence(:email) { |n| "cosme_fulanito#{n}@hackerschool.com"}
   endend
 ```
@@ -968,7 +968,7 @@ it "allows two contacts to share a phone number" do  create(:phone, phone_type:
 
 But FactoryGirl provides us the ability to **inherited factories, overriding attributes as necessary**
 
-```
+```ruby
 FactoryGirl.define do
   factory :phone do
     association :contact
@@ -1001,7 +1001,7 @@ We can improve our test data to make it look more realistic through [faker](http
 
 If we incorpore some fake data into our contact factory:
 
-```
+```factory
 require 'faker'
 
 FactoryGirl.define do
